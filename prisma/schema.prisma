@@ -7,6 +7,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Enrollment {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  address      String
+  cityStateZip String
+  dateOfBirth  String
+  email        String
+  phoneCell    String
+  phoneHome    String
+  studentName  String
+}
+
 model User {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   name String
