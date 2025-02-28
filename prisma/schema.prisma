@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "cockroachdb"
   url      = env("DATABASE_URL")
 }
 
 model Enrollment {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  id           String @id @default(uuid()) @map("_id") @db.Uuid
   address      String
   cityStateZip String
   dateOfBirth  String
@@ -19,6 +19,6 @@ model Enrollment {
 }
 
 model User {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  id   String @id @default(uuid()) @map("_id") @db.Uuid
   name String
 }
